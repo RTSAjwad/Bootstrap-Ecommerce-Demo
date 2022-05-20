@@ -18,9 +18,17 @@
     <link href="css/style.css" rel="stylesheet" />
   </head>
   <body>
+    <!-- Navigation bar is included at the top of each page. It is created using custom components -->
     <mobi-navbar></mobi-navbar>
     <div class="container my-4">
       <h2 class="d-flex justify-content-center my-5">Browse Mobile Phones</h2>
+      <!-- The mobiles page div that contains all the products is responsive  -->
+      <!-- This is achieved by the use of bootstrap classes -->
+      <!-- row defines this div as a bootstrap row -->>
+      <!-- row-cols-1 means 1 column is shown upto the small breakpoint -->
+      <!-- row-cols-sm-2 means 2 columns is shown past the small breakpoint -->
+      <!-- row-cols-md-3 means 3 columns is shown past the medium breakpoint -->
+      <!-- row-cols-lg-4 means 4 columns is shown past the large breakpoint -->
       <div
         id="mobile-row"
         class="row browsing-row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4"
@@ -33,6 +41,7 @@
       <mobi-product-card tag="google-pixel-6" brandName="Google" productName="Pixel 6" price="597.00"></mobi-product-card>
       </div>
     </div>
+    <!-- Footer is included at the bottom of each page. It is created using custom components -->
     <mobi-footer></mobi-footer>
     <script src="script/cartManipulation.js"></script>
     <script src="script/commonComponents.js"></script>

@@ -1,6 +1,8 @@
+//Class for the navigation bar
 class MobiNavbar extends HTMLElement {
   constructor() {
     super();
+    //When the navigation bar is constructed, it's innerHTML is set
     this.innerHTML = `
         <nav class="navbar navbar-expand-md navbar-light bg-light sticky-top shadow">
           <div class="container">
@@ -11,13 +13,7 @@ class MobiNavbar extends HTMLElement {
                 </h1>
                 </a>
                 <button
-                class="navbar-toggler"
-                type="button"
-                data-toggle="collapse"
-                data-target="#navlist"
-                aria-controls="navlist"
-                aria-expanded="false"
-                aria-label="Toggle navigation"
+                class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navlist" aria-controls="navlist" aria-expanded="false" aria-label="Toggle navigation"
                 >
                 <span class="navbar-toggler-icon"></span>
                 </button>
@@ -43,8 +39,13 @@ class MobiNavbar extends HTMLElement {
             </div>
         </nav>
         `;
+    //The title of the document is retrieved in order to find out the current page.
+    //This is used to style the navlink for the current page with the built in bootstrap tag called active.
+    //This is important as it give visual feedback to the user on what the current page is.
     var title = document.getElementsByTagName("title")[0].id;
     var navLinks = this.getElementsByClassName("nav-link");
+
+    //if/else if statements are used to figure out which page it is so the class can be added. 
     if (title == "title-home") {
       navLinks[0].classList.add("active");
     } else if (title == "title-mobiles") {
@@ -61,6 +62,7 @@ class MobiNavbar extends HTMLElement {
 class MobiFooter extends HTMLElement {
   constructor() {
     super();
+    //When the footer is constructed, it's innerHTML is set
     this.innerHTML = `
     <footer class="container border-top py-4 d-flex justify-content-between">
         <div class="d-flex align-items-center">
@@ -80,6 +82,8 @@ class MobiFooter extends HTMLElement {
 class MobiProductCard extends HTMLElement {
   constructor() {
     super();
+    //When the product card is constructed, its various attributes are retrieved and stored as variables
+    //This is so that they can be included in HTML using ${} syntax so the cards HTML can display its information
     this.tag = this.getAttribute("tag");
     this.brandName = this.getAttribute("brandName");
     this.productName = this.getAttribute("productName");
@@ -109,9 +113,8 @@ class MobiProductCard extends HTMLElement {
           </div>
     `;
   }
-  
+  //This function is called when product card is inserted into the DOM
   connectedCallback() {
-
     var inCart = isItemInCartByTag(this.tag);
     var insertTarget = this.getElementsByClassName("card-body")[1];
     if (inCart == false) {

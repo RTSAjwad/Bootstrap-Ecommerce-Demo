@@ -22,9 +22,12 @@
     <div class="container my-4">
       <h2 class="d-flex justify-content-center my-5">Contact Us</h2>
       <div class="container card">
+          <!-- The form has an onsubmit attribute that calls the function from javascript when the form is submitted -->
+          <!-- Return keyword is used so that if the function determines the form isn't valid, the form won't submit -->
          <form name="contactForm" onsubmit="return validateForm()">
           <div class="mb-3">
             <label for="contactName" class="form-label">Name</label>
+            <!-- Name Input Element -->
             <input
               name="contactName"
               class="form-control form-control-lg"
@@ -34,6 +37,8 @@
           </div>
           <div class="mb-3">
             <label for="contactEmail" class="form-label">E-mail Address</label>
+            <!-- Email Input Element -->
+            <!-- It has the type attribute set to email so the value has to be in email format. -->
             <input
               name="contactEmail"
               class="form-control form-control-lg"
@@ -43,12 +48,14 @@
           </div>
           <div class="mb-3">
             <label for="contactMessage" class="form-label">Message</label>
+            <!-- Message Input Element -->
             <textarea
               name="contactMessage"
               class="form-control form-control-lg"
               type="text"
             ></textarea>
           </div>
+          <!-- Submit Button Element -->
           <input class="btn btn-primary" type="submit" value="Submit">
          </form> 
       </div>
